@@ -1,12 +1,15 @@
+// import axios from 'axios'
 var repoList = document.querySelector('ul');
 var fetchButton = document.getElementById('fetch-button');
 
 function getApi(){
-  var requestUrl ='https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/ca/current.json'; 
+ var requestUrl ='https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/ca/current.json'; 
+//  axios.get(requestUrl).then(response=>{console.log(response.data)})
 
   fetch(requestUrl)
   .then(function (response){
-    return response.json();
+   console.log(response)
+   return response.json();
   })
   .then(function (data){
 
@@ -18,19 +21,20 @@ function getApi(){
     //   var listItem.textContent = data[i] .html_url;
     //   repoList.appendChild(listItem);
     // }
-  })
-}
-function getApi (){
-  var requestUrl ='https://www.vaccinespotter.org/api/v0/states/MA.json';
+   })
+   }
+// function getApi (){
+ //var requestUrl ='https://www.vaccinespotter.org/api/v0/states/MA.json';
 
-  fetch(requestUrl)
-  .then(function (response){
-    return response.json();
-  })
-  .then(function(data){
-    
-  })
-}
+//   fetch(requestUrl)
+//   .then(function (response){
+//    console.log(response)
+//    return response.json();
+//   })
+//   .then(function(data){
+
+//   })
+// }
 
 
 // let map;
@@ -41,6 +45,6 @@ function getApi (){
 //     zoom: 8,
 //   });
 // }
-getAPi()
+getApi()
 
-fetchButton.addEventListener('click', getAPi);
+fetchButton.addEventListener('click', getApi);

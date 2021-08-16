@@ -1,7 +1,7 @@
 var repoList = document.querySelector('ul');
 var fetchButton = document.getElementById('fetch-button');
 
-function getAPi(){
+function getApi(){
   var requestUrl ='https://cors-anywhere.herokuapp.com/https://api.covidtracking.com/v1/states/ca/current.json'; 
 
   fetch(requestUrl)
@@ -20,8 +20,18 @@ function getAPi(){
     // }
   })
 }
+function getApi (){
+  var requestUrl ='https://www.vaccinespotter.org/api/v0/states/MA.json';
 
-'https://www.vaccinespotter.org/api/v0/states/MA.json'
+  fetch(requestUrl)
+  .then(function (response){
+    return response.json();
+  })
+  .then(function(data){
+    
+  })
+}
+
 
 // let map;
 

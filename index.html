@@ -2,8 +2,10 @@
 <html>
 <head>
 <title>Page Title</title>
-<!---<link rel="stylesheet" href="css/foundation.css"--->
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,69 +18,91 @@
 <body>
     <header>
         <h1>Vaxx<br>
-
-            <!-- <span class="seo">seo</span>n</h1> -->
         <nav>
             <ul>
                 <li>
-                    <a href="#real-time-covid-stats">Real Time COVID-19 Stats</a>
+                    <a href="#COVID-19-Death-Rates">COVID-19 Death Rates</a>
                 </li>
                 <li>
-                    <a href="#online-reputation-management">Online Reputation Management</a>
+                    <a href="#COVID-19-Hospitilizations">COVID-19 Hospitilizations</a>
                 </li>
                 <li>
-                    <a href="#social-media-marketing">Social Media Marketing</a>
+                    <a href="#COVID-19-Recoveries">COVID-19 Recoveries</a>
                 </li>
             </ul>
         </nav>
     </header>
     
+    <img src="./images/covid19.PNG" alt="covid19" class="center">
+    
     <!--HERO IMAGE-->
 
-    <div class="hero"></div>
+    <!-- <div class="hero"></div> -->
     
     <!--CONTENT-->
     
     <section class="content">
         <article class="search-engine">
-            <img src="./assets/images/search-engine-optimization.jpg" class="float-left" />
-            <h2>Search Engine Optimization</h2>
-            <p>
-                The dominance of mobile internet use means that users are searching for the right business as they travel, shop, or sit on their couch at home. Search Engine Optimization (SEO) allows you to increase your visibility and find the right customers for your business.
+           
+            <h2>State</h2>
+            <p id='state'>
+                
             </p>
         </article>
-        <article id="online-reputation-management" class="search-engine">
-            <img src="./assets/images/online-reputation-management.jpg" class="float-right" />
-            <h2>Online Reputation Management</h2>
+        <article id="Vaccination Sites Near You" class="search-engine">
+            <!-- img src="./assets/images/online-reputation-management.jpg" class="float-right" /> -->
+            <h2>Vaccination Sites Near You</h2>
             <p>
-                The web is full of opinions, and some of these can be negative. Social media allows anyone with an internet connection to say whatever they want about your business. Online Reputation Management gives you the control over what potential customers see when they search for your business.
+                Here you will be able to find the nearest sites to your current location administering the COVID-19 vaccine.
+                Current available vaccines include: Moderna 2 dose, Pfizer 2 dose, and the Johnson&Johnson 1 dose.
+                Please note that you are not allowed to choose which of those 3 you are given.
             </p>
         </article>
-        <article id="social-media-marketing" class="search-engine">
-            <img src="./assets/images/social-media-marketing.jpg" class="float-left" />
-            <h2>Social Media Marketing</h2>
+        <form action="/action_page.php">
+            <label for="states"> Choose a State:</label>
+            <select name="states" id="states">
+                <option value="MA"> MA</option>
+                <option value="NH"> NH</option>
+                <option value="ME">ME</option>
+                <option value="VT">VT</option>
+                <option value="CT">CT</option>
+                <option value="RI">RI</option>
+            </select>
+        <br><br>
+        <input type="submit" value="Submit"
+        
+        </form>
+
+
+        <article id="Up to Date CDC Recommendations" class="search-engine">
+            <!--img src="./assets/images/social-media-marketing.jpg" class="float-left" /-->
+            <h2>Up to Date CDC Recommendations</h2>
             <p>
-                Social media continues to have a sizable influence on buying habits. Social media marketing helps you determine which platforms are suited to your brand, using analytics to find the right markets and increase your lead generation.
+                Updated information for fully vaccinated people given new evidence on the B.1.617.2 (Delta) variant currently circulating in the United States.
+                Added a recommendation for fully vaccinated people to wear a mask in public indoor settings in areas of substantial or high transmission.
+                Added information that fully vaccinated people might choose to wear a mask regardless of the level of transmission, particularly if they are immunocompromised or at increased risk for severe disease from COVID-19, or if they have someone in their household who is immunocompromised, at increased risk of severe disease or not fully vaccinated.
+                Added a recommendation for fully vaccinated people who have come into close contact with someone with suspected or confirmed COVID-19 to be tested 3-5 days after exposure, and to wear a mask in public indoor settings for 14 days or until they receive a negative test result.
+                CDC recommends universal indoor masking for all teachers, staff, students, and visitors to schools, regardless of vaccination status.
             </p>
         </article>
     </section>
    
    <!--BENEFIT-->
    
-    <section class="section-benefits">
-        <article class="benefit">
-          <h3>Lead Generation</h3>
-          <img src="./assets/images/lead-generation.png" alt="lead generation logo" />
+    <section class="Other Ways to Stop the Spread">
+        <article class="vaccines">
+          <h3>Mask Up</h3>
+          <!---img src="./assets/images/lead-generation.png" alt="lead generation logo" /--->
           <p>Inbound strategies for lead generation require less work for your business, bringing customers directly to your website.</p>
         </article>
-        <article class="benefit">
-          <h3>Brand Awareness</h3>
-          <img src="./assets/images/brand-awareness.png" alt="brand awareness logo" />
+        <article class="vaccines">
+          <h3>Keeping your hands clean</h3>
+          <!---img src="./assets/images/brand-awareness.png" alt="brand awareness logo" /---->
           <p>Users find your business through paid and organic searches, increasing the search ranking and visibility for your business.</p>
         </article>
-        <article class="benefit">
-          <h3>Cost Management</h3>
-          <img src="./assets/images/cost-management.png" alt="cost management logo" />
+        <article class="vaccines">
+          <h3>FDA Approved Items to do this</h3>
+          <!---img src="./assets/images/cost-management.png" alt="cost management logo" /---->
           <p>As the search ranking for your business increases, your advertising costs decrease, and you no longer need to advertise your page.</p>
         </article>
       </section>
@@ -93,7 +117,7 @@
 
 
 
-<script src="scripts.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

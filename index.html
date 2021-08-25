@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="style.css">
+<title>Title</title>
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
 <title>Page Title</title>
@@ -7,17 +20,47 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
+<body> -->
 
 <h1>AXXESS THE VAXX</h1>
 <p>Please help stop the spread, Save lives.</p>
+<h1 class="form-inline justify-content-center">
 
 </head>
+
+<div class="jumbotron">
+    <div class="input-group mb-3">
+        <input type="text"
+        id="userInput" class="form-control" placeholder="Location" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+        </div>
+    </div>
+
+    <div id="vaccineFinder">
+
+    </div>
+    <div id="movieLanguage">
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!------HEADER------>
 <body>
     <header>
-        <h1>Vaxx<br>
+        <h1>Vaxx
+            <br>
         <nav>
             <ul>
                 <li>
@@ -56,7 +99,7 @@
                 Here you will be able to find the nearest sites to your current location administering the COVID-19 vaccine.
                 Current available vaccines include: Moderna 2 dose, Pfizer 2 dose, and the Johnson&Johnson 1 dose.
                 Please note that you are not allowed to choose which of those 3 you are given.
-            </p>
+            <!-- </p>
         </article>
         <form action="/action_page.php">
             <label for="states"> Choose a State:</label>
@@ -71,7 +114,7 @@
         <br><br>
         <input type="submit" value="Submit"
         
-        </form>
+        </form> -->
 
 
         <article id="Up to Date CDC Recommendations" class="search-engine">
@@ -112,9 +155,19 @@
 
 
 
+<script>
+  const successCallback = (position) => {
+      console.log(position);
+  };
+  const errorCallback = (error) => {
+      console.error(error);
+  };
+  
+  
+  const watchIDd = navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
 
-
+</script>
 
 
 <script src="script.js"></script>

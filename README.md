@@ -7,3 +7,10 @@ This application will give you real time COVID-19 stats based on your location. 
 An application like this will help stop the spread of COVID-19 virus and the Delta Variant.
 
 This can be used on a mobile device or desktop. 
+
+
+
+
+
+
+api for automatic location: does not work because it does not run on https.

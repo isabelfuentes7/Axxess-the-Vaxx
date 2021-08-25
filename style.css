@@ -1,8 +1,9 @@
-*
+/* .h1{
+    justify-content: center;
+} */
 
 
-
-{
+/* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -28,7 +29,7 @@ body {
 
 }
 
-.header h1 {
+/* .header h1 {
     display: inline-block;
     font-size: 80px;
     font-family: 'Oswald', sans-serif;
@@ -36,7 +37,7 @@ body {
 
 .header h1 .seo {
     color: #d9dcd6;
-}
+} */
 
 .header div {
     padding-top: 15px;
@@ -211,4 +212,4 @@ p {
 
 .footer h2 {
     font-size: 20px;
-}
+} */

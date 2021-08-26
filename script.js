@@ -1,12 +1,14 @@
-$("#button-addon2").on('click', function(){
-  console.log("button click");
-  var userMovie = $("#userInput").val();
-  console.log(userMovie);
+// $("#button-addon2").on('click', function(){
+//   console.log("button click");
+//   var userMovie = $("#userInput").val();
+//   console.log(userMovie)
+// };
 
-  var requestUrl = "https://api.covidactnow.org/v2/state/{state}.json?apiKey=01070f0a67e04e779ca27d3bc65eb29c"
+  var requestUrl = "https://www.vaccinespotter.org/api/v0/states/MA.json";
+  
   // https://api.covidactnow.org/v2/county/{fips}.json?apiKey=YOUR_KEY_HERE
   // https://api.covidactnow.org/v2/cbsa/{cbsa_code}.json?apiKey=YOUR_KEY_HERE"
-  console.log(requestUrl)
+  console.log(requestUrl);
 
   fetch(requestUrl)
   .then(function (response){
@@ -16,17 +18,18 @@ $("#button-addon2").on('click', function(){
   .then(function (data){
       console.log(data)
 
-      $("#vaccineFinder").text(data.Plot)
-      $("#movieLanguage").text(data.Language)
-  })
+      $("#vaccinePharmacy").text(data.name)
 
-});
-
+      // $("#movieLanguage").text(data.Language)
+  });
 
 
-https://developer.walgreens.com/user/me/apps/add
 
 
+
+// https://developer.walgreens.com/user/me/apps/add
+
+// https://api.covidactnow.org/v2/state/{state}.json?apiKey=01070f0a67e04e779ca27d3bc65eb29c
 
 
 // https://www.vaccinespotter.org/api/v0/states/MA.json"

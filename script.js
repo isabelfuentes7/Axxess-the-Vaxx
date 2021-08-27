@@ -4,6 +4,22 @@
 //   console.log(userMovie)
 // };
 
+fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
+		"x-rapidapi-key": "c35fca3284msh8cc0fd284e64a91p13fa14jsn516c9b52b38b"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
+});
+
+
+
   var requestUrl = "https://www.vaccinespotter.org/api/v0/states/MA.json";
   
   // https://api.covidactnow.org/v2/county/{fips}.json?apiKey=YOUR_KEY_HERE
@@ -18,7 +34,7 @@
   .then(function (data){
       console.log(data)
 
-      $("#vaccinePharmacy").text(data.name)
+      // $("#vaccinePharmacy").text(data.name)
 
       // $("#movieLanguage").text(data.Language)
   });

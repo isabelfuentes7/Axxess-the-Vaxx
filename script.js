@@ -1,8 +1,8 @@
-// $("#button-addon2").on('click', function(){
-//   console.log("button click");
-//   var userMovie = $("#userInput").val();
-//   console.log(userMovie)
-// };
+$("#button-addon2").on('click', function(){
+  console.log("button click");
+  var userMovie = $("#userInput").val();
+  console.log(userMovie)
+});
 
 fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA", {
 	"method": "GET",
@@ -18,9 +18,17 @@ fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com
 	console.error(err);
 });
 
+$("#button-addon2").on('click', function(){
+  var div
+      
+      // div.parentNode.removeChild(div)
+  console.log("button click");
+  var userMovie = $("#userInput").val();
+  console.log(userMovie)
 
+  var states = $("#userInput").val()
 
-  var requestUrl = "https://www.vaccinespotter.org/api/v0/states/MA.json";
+  var requestUrl = "https://www.vaccinespotter.org/api/v0/states/"+ states +".json";
   
   // https://api.covidactnow.org/v2/county/{fips}.json?apiKey=YOUR_KEY_HERE
   // https://api.covidactnow.org/v2/cbsa/{cbsa_code}.json?apiKey=YOUR_KEY_HERE"
@@ -34,15 +42,45 @@ fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com
   .then(function (data){
       console.log(data)
 
-      // $("#vaccinePharmacy").text(data.name)
+      // $("#vaccinePharmacy").text(data.[0].properties.name)
+      // var temp=document.getElementById("vaccinePharmacy")
+      var temp=[]
+      for(i=0; i < 50; i++){
+        // console.log(data.features[i].properties.city, data.features[i].properties.name)
+        var div=document.createElement("div")
+temp.push({'storeName':String((data.features[i].properties.city)).charAt(0).toUpperCase()+String((data.features[i].properties.city)).slice(1).toLowerCase(),"address": data.features[i].properties.name})
+
+
+
+
+
+
+      }
+      console.log(temp)
+      document.getElementById("vaccinePharmacy").textContent=''
+      for(i=0; i < temp.length; i++){
+        // console.log(data.features[i].properties.city, data.features[i].properties.name)
+        div=document.createElement("div")   
+// +String((data.features[i].properties.city)).slice(1);
+div.innerHTML=temp[i].storeName+' '+ temp[i].address
+
+document.getElementById("vaccinePharmacy").appendChild(div)
+
+
+
+
+      }
+      
 
       // $("#movieLanguage").text(data.Language)
   });
+});
 
 
 
-
-
+function removeTag(){
+  
+}
 // https://developer.walgreens.com/user/me/apps/add
 
 // https://api.covidactnow.org/v2/state/{state}.json?apiKey=01070f0a67e04e779ca27d3bc65eb29c
@@ -121,4 +159,4 @@ fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com
 // // }
 // getApi()
 
-// fetchButton.addEventListener('click', getApi);
+// fetchButton.addEventListener('click', getApi)

@@ -1,8 +1,8 @@
-$("#button-addon2").on('click', function(){
-  console.log("button click");
-  var userMovie = $("#userInput").val();
-  console.log(userMovie)
-});
+// $("#button-addon2").on('click', function(){
+//   console.log("button click");
+//   var userMovie = $("#userInput").val();
+//   console.log(userMovie)
+// });
 
 fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA", {
 	"method": "GET",
@@ -13,10 +13,13 @@ fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com
 })
 .then(response => {
 	console.log(response);
+  return response.json();
 })
-.catch(err => {
-	console.error(err);
-});
+.then(function(data){
+  console.log(data);
+})
+
+
 
 $("#button-addon2").on('click', function(){
   var div
@@ -48,30 +51,22 @@ $("#button-addon2").on('click', function(){
       for(i=0; i < 50; i++){
         // console.log(data.features[i].properties.city, data.features[i].properties.name)
         var div=document.createElement("div")
-temp.push({'storeName':String((data.features[i].properties.city)).charAt(0).toUpperCase()+String((data.features[i].properties.city)).slice(1).toLowerCase(),"address": data.features[i].properties.name})
-
-
-
-
-
-
+        temp.push({'storeName':String((data.features[i].properties.city)).charAt(0).toUpperCase()+String((data.features[i].properties.city)).slice(1).toLowerCase(),"address": data.features[i].properties.name})
       }
+
       console.log(temp)
+
       document.getElementById("vaccinePharmacy").textContent=''
+
       for(i=0; i < temp.length; i++){
         // console.log(data.features[i].properties.city, data.features[i].properties.name)
         div=document.createElement("div")   
-// +String((data.features[i].properties.city)).slice(1);
-div.innerHTML=temp[i].storeName+' '+ temp[i].address
+        // +String((data.features[i].properties.city)).slice(1);
+        div.innerHTML= "Town: " + temp[i].storeName+', Store: '+ temp[i].address
 
-document.getElementById("vaccinePharmacy").appendChild(div)
-
-
-
-
+        document.getElementById("vaccinePharmacy").appendChild(div)
       }
       
-
       // $("#movieLanguage").text(data.Language)
   });
 });
@@ -87,28 +82,6 @@ function removeTag(){
 
 
 // https://www.vaccinespotter.org/api/v0/states/MA.json"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // // import axios from 'axios'

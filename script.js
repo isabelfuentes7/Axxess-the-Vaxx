@@ -1,40 +1,23 @@
-// $("#button-addon2").on('click', function(){
-//   console.log("button click");
-//   var userMovie = $("#userInput").val();
-//   console.log(userMovie)
-// });
-
-fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
-		"x-rapidapi-key": "c35fca3284msh8cc0fd284e64a91p13fa14jsn516c9b52b38b"
-	}
-})
-.then(response => {
-	console.log(response);
-  return response.json();
-})
-.then(function(data){
-  console.log(data);
-})
-
 
 
 $("#button-addon2").on('click', function(){
   var div
+  // Getting state from the dropdown menu
       
-      // div.parentNode.removeChild(div)
   console.log("button click");
   var userMovie = $("#userInput").val();
   console.log(userMovie)
 
   var states = $("#userInput").val()
 
+
+
+
+  //Pharmacy Store
+
+
   var requestUrl = "https://www.vaccinespotter.org/api/v0/states/"+ states +".json";
   
-  // https://api.covidactnow.org/v2/county/{fips}.json?apiKey=YOUR_KEY_HERE
-  // https://api.covidactnow.org/v2/cbsa/{cbsa_code}.json?apiKey=YOUR_KEY_HERE"
   console.log(requestUrl);
 
   fetch(requestUrl)
@@ -44,12 +27,11 @@ $("#button-addon2").on('click', function(){
   })
   .then(function (data){
       console.log(data)
+//Displaying pharmacy locations on html pg
 
-      // $("#vaccinePharmacy").text(data.[0].properties.name)
-      // var temp=document.getElementById("vaccinePharmacy")
+//For loop used to store into temporary array
       var temp=[]
-      for(i=0; i < 50; i++){
-        // console.log(data.features[i].properties.city, data.features[i].properties.name)
+      for(i=0; i < 50; i++){ 
         var div=document.createElement("div")
         temp.push({'storeName':String((data.features[i].properties.city)).charAt(0).toUpperCase()+String((data.features[i].properties.city)).slice(1).toLowerCase(),"address": data.features[i].properties.name})
       }
@@ -57,25 +39,92 @@ $("#button-addon2").on('click', function(){
       console.log(temp)
 
       document.getElementById("vaccinePharmacy").textContent=''
-
+//For loop display all the temp array data onto html pg
       for(i=0; i < temp.length; i++){
-        // console.log(data.features[i].properties.city, data.features[i].properties.name)
         div=document.createElement("div")   
-        // +String((data.features[i].properties.city)).slice(1);
         div.innerHTML= "Town: " + temp[i].storeName+', Store: '+ temp[i].address
-
         document.getElementById("vaccinePharmacy").appendChild(div)
       }
-      
-      // $("#movieLanguage").text(data.Language)
-  });
-});
+ });
+
+
+  //Covid Case Numbers
+  var requestUrlForTotalCase ="https://data.cdc.gov/resource/9mfq-cb36.json?submission_date=2021-09-05T00:00:00.000&state="+states
+  //Fetching case numbers from api
+  fetch(requestUrlForTotalCase)
+  .then(function (response){
+    console.log(response)
+    return response.json();
+    })
+  .then(function(data) {
+console.log(data,data[0].pnew_case,data[0].new_death,data[0].tot_cases)
+var div_new_case,div_total_case,div_death_rate
+
+//New Case Numbers
+//Create new div tag on html pg
+div_new_case=document.createElement("div")   
+//Store the new case number into the new html
+div_new_case.innerHTML=Number(data[0].new_case)
+//Remove the old(previous state data) case number 
+document.getElementById("new_case").textContent=''
+//Display new case number(new state)
+document.getElementById("new_case").appendChild(div_new_case)
+
+//Total Case Numbers
+div_total_case=document.createElement("div")   
+div_total_case.innerHTML=Number(data[0].tot_cases)
+document.getElementById("total_case").textContent=''
+document.getElementById("total_case").appendChild(div_total_case)
+
+
+//Death Rates
+div_death_rate=document.createElement("div")   
+div_death_rate.innerHTML=Number(data[0].new_death)
+document.getElementById("death_rates").textContent=''
+document.getElementById("death_rates").appendChild(div_death_rate)
+    })
+//Above
+  })
+  
 
 
 
 function removeTag(){
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // https://developer.walgreens.com/user/me/apps/add
 
 // https://api.covidactnow.org/v2/state/{state}.json?apiKey=01070f0a67e04e779ca27d3bc65eb29c
@@ -133,3 +182,17 @@ function removeTag(){
 // getApi()
 
 // fetchButton.addEventListener('click', getApi)
+// fetch("https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/covid-ovid-data/sixmonth/USA", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
+// 		"x-rapidapi-key": "c35fca3284msh8cc0fd284e64a91p13fa14jsn516c9b52b38b"
+// 	}
+// })
+// .then(response => {
+// 	console.log(response);
+//   return response.json();
+// })
+// .then(function(data){
+//   console.log(data);
+// })
